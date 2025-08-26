@@ -1,6 +1,39 @@
+server:
+  port: 8080
+
 spring:
   application:
-    name: bryant-music
-  profiles:
-    active: dev
+    name: music-system
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/music_system?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
 
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+# MinIO配置
+minio:
+  endpoint: http://192.168.2.54:9000
+  accessKey: minioadmin
+  secretKey: minioadmin
+  bucket: music-files
+
+# 日志配置
+logging:
+  level:
+    com.music: DEBUG
+    org.springframework.web: DEBUG 
