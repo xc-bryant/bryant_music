@@ -1,0 +1,17 @@
+server:
+  port: 8095
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/bryant_music?characterEncoding=utf8&useSSL=false&useUnicode=true&allowPublicKeyRetrieval=true
+    username: root
+    password: Xc@123456
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+minio:
+  point: http://127.0.0.1:55555
+  username: minioadmin
+  password: minioadmin
+music-api-url:
+  find: http://music.163.com/api/search/get/web?csrf_token=hlpretag=&hlposttag=&s=%s&type=1
+  download: http://music.163.com/song/media/outer/url?id=%d
