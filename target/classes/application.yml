@@ -4,6 +4,19 @@ server:
 spring:
   application:
     name: music-system
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    database: 0
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: 100ms
+    timeout: 3000ms
   
   datasource:
     url: jdbc:mysql://localhost:3306/music_system?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
@@ -27,7 +40,7 @@ spring:
 
 # MinIO配置
 minio:
-  endpoint: http://localhost:9000
+  endpoint: http://192.168.2.54:9000
   accessKey: minioadmin
   secretKey: minioadmin
   bucket: music-files

@@ -1,5 +1,6 @@
 package com.music.controller;
 
+import com.music.common.anotation.RequestLimit;
 import com.music.dto.ApiResponse;
 import com.music.dto.SongDTO;
 import com.music.dto.SongUploadRequest;
@@ -47,6 +48,7 @@ public class SongController {
      * 获取所有歌曲
      */
     @GetMapping
+    @RequestLimit(period = 10, count = 3)
     public ApiResponse<List<SongDTO>> getAllSongs() {
         try {
             List<SongDTO> songs = songService.getAllSongs();
